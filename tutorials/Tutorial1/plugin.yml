@@ -1,5 +1,5 @@
 name: HCSpigotPlugin
-main: hardcoded.spigot.tutorial.Plugin0
+main: hardcoded.spigot.tutorial.Plugin
 version: 1.16
 author: Hard_Coded
 commands:
