@@ -1,6 +1,7 @@
 name: HCSpigotPlugin
 main: hardcoded.spigot.tutorial.Plugin
-version: 1.16
+version: 1.0
+api-version: 1.16
 author: Hard_Coded
 commands:
     explode:
