@@ -20,7 +20,10 @@ public class MyPlugin extends JavaPlugin {
 	
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		if(command.getName().equalsIgnoreCase("myconfig")) {
+		if(command.getName().equalsIgnoreCase("delaysay")) {
+			if(args.length < 2) return Arrays.asList("<delay in ticks>");
+			return Collections.emptyList();
+		} else if(command.getName().equalsIgnoreCase("myconfig")) {
 			if(args.length < 2) {
 				return Arrays.asList("set", "get", "help");
 			} else {
@@ -75,11 +78,38 @@ public class MyPlugin extends JavaPlugin {
 				
 				return true;
 			} else if(command.getName().equalsIgnoreCase("colorsay")) {
-				String msg = "";
-				for(int i = 0; i < args.length; i++) msg += args[i] + (i < args.length - 1 ? " ":"");
+				if(args.length == 0) {
+//					player.sendMessage(ChatColor.YELLOW + "---------------------------------------------");
+//					StringBuilder sb = new StringBuilder();
+//					int j = 0;
+//					for(ChatColor color : ChatColor.values()) {
+//						if(color == ChatColor.RESET) continue;
+//						sb.append("§r&").append(color.getChar()).append(" §").append(color.getChar()).append("text§r ");
+//						if((++j > 0) && (j % 6 == 0)) sb.append('\n');
+//					}
+//					player.sendMessage(sb.toString().trim());
+//					player.sendMessage("&r reset the current formatting");
+//					player.sendMessage(ChatColor.YELLOW + "---------------------------------------------");
+					
+					player.sendMessage(ChatColor.YELLOW + "---------------------------------------------");
+					String msg = "";
+					int j = 0;
+					for(ChatColor color : ChatColor.values()) {
+						if(color == ChatColor.RESET) continue;
+						msg += "§r&" + color.getChar() + " §" + color.getChar() + "text§r ";
+						if((++j > 0) && (j % 6 == 0)) msg += '\n';
+					}
+					player.sendMessage(msg.trim());
+					player.sendMessage("&r reset the current formatting");
+					player.sendMessage(ChatColor.YELLOW + "---------------------------------------------");
+				} else {
+					String msg = "";
+					for(int i = 0; i < args.length; i++) msg += args[i] + (i < args.length - 1 ? " ":"");
+					
+					msg = msg.replace('&', '§');
+					Bukkit.broadcastMessage("<" + player.getName() + "> " + msg);
+				}
 				
-				msg = msg.replace('&', '§');
-				Bukkit.broadcastMessage("<" + player.getName() + "> " + msg);
 				return true;
 			} else if(command.getName().equalsIgnoreCase("myconfig")) {
 				String error = "";

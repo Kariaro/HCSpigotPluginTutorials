@@ -12,10 +12,12 @@ commands:
         permission: myspigotplugin.colorsay
         description: Write a message with colors.
         usage: /colorsay <message>
+        aliases: [ cs ]
     myconfig:
         permission: myspigotplugin.myconfig
         description: Access the config of this plugin.
         usage: /myconfig <help>
+        aliases: [ mc ]
 permissions:
     myspigotplugin.delaysay:
         description: Allows delaysay command.
