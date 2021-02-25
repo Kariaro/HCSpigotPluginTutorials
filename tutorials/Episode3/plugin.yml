@@ -1,0 +1,31 @@
+name: HCSpigotPlugin
+main: hardcoded.spigot.tutorial.MyPlugin
+version: 1.0
+api-version: 1.16
+author: Hard_Coded
+commands:
+    delaysay:
+        permission: myspigotplugin.delaysay
+        description: Write a delayed message.
+        usage: /delaysay <delay> "<message>"
+    colorsay:
+        permission: myspigotplugin.colorsay
+        description: Write a message with colors.
+        usage: /colorsay <message>
+    myconfig:
+        permission: myspigotplugin.myconfig
+        description: Access the config of this plugin.
+        usage: /myconfig <help>
+permissions:
+    myspigotplugin.delaysay:
+        description: Allows delaysay command.
+        default: true
+    myspigotplugin.colorsay:
+        description: Allows to say colored command.
+        default: notop
+    myspigotplugin.myconfig:
+        description: Allows to access this plugins config.
+        default: op
+    myspigotplugin.*:
+        description: Wildcard permission for myspigotplugin.
+        default: op
